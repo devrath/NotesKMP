@@ -12,18 +12,26 @@ private val LocalNotesColors = staticCompositionLocalOf { LightNotesColors }
 private val LocalNotesTypography = staticCompositionLocalOf<NotesTypography> {
     error("NotesTypography is only available inside NotesTheme")
 }
+private val LocalNotesPlatform = staticCompositionLocalOf { currentNotesPlatform }
+private val LocalReduceMotion = staticCompositionLocalOf { false }
 
-/** App theme. Light and dark follow the system setting. */
+/**
+ * App theme. Light and dark follow the system setting. [platform] defaults to the running
+ * platform; previews override it to show the other platform's conventions.
+ */
 @Composable
 fun NotesTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
+    platform: NotesPlatform = currentNotesPlatform,
     content: @Composable () -> Unit,
 ) {
     val colors = if (darkTheme) DarkNotesColors else LightNotesColors
-    val typography = remember { platformNotesTypography() }
+    val typography = notesTypography(platform)
     CompositionLocalProvider(
         LocalNotesColors provides colors,
         LocalNotesTypography provides typography,
+        LocalNotesPlatform provides platform,
+        LocalReduceMotion provides isSystemReduceMotionEnabled(),
     ) {
         MaterialTheme(
             colorScheme = remember(colors, darkTheme) { colors.toColorScheme(darkTheme) },
@@ -45,4 +53,15 @@ object NotesTheme {
         @Composable
         @ReadOnlyComposable
         get() = LocalNotesTypography.current
+
+    val platform: NotesPlatform
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalNotesPlatform.current
+
+    /** Pass to [NotesMotion.spec] so animations become instant when the system asks. */
+    val reduceMotion: Boolean
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalReduceMotion.current
 }

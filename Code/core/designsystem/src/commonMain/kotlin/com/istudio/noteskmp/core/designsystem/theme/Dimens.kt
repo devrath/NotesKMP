@@ -1,6 +1,10 @@
 package com.istudio.noteskmp.core.designsystem.theme
 
 import androidx.compose.animation.core.CubicBezierEasing
+import androidx.compose.animation.core.Easing
+import androidx.compose.animation.core.FiniteAnimationSpec
+import androidx.compose.animation.core.snap
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Shapes
 import androidx.compose.ui.unit.dp
@@ -39,11 +43,18 @@ internal val NotesShapes = Shapes(
     extraLarge = RoundedCornerShape(NotesRadius.xl),
 )
 
-/** Motion tokens (`--dur-*`, `--ease-*`). Callers must still honor reduce-motion. */
+/** Motion tokens (`--dur-*`, `--ease-*`). Build specs with [spec] so reduce-motion is honored. */
 object NotesMotion {
     const val DURATION_FAST_MILLIS = 120
     const val DURATION_BASE_MILLIS = 200
     const val DURATION_SLOW_MILLIS = 300
     val EasingStandard = CubicBezierEasing(0.2f, 0f, 0f, 1f)
     val EasingEmphasized = CubicBezierEasing(0.3f, 0f, 0f, 1f)
+
+    /** A tween of [durationMillis], or an instant change when [reduceMotion] is on. */
+    fun <T> spec(
+        durationMillis: Int,
+        reduceMotion: Boolean,
+        easing: Easing = EasingStandard,
+    ): FiniteAnimationSpec<T> = if (reduceMotion) snap() else tween(durationMillis, easing = easing)
 }
