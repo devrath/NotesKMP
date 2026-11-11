@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- iOS back button label: the screen it returns to -->
+    <string name="back_label">Notes</string>
+    <string name="cd_preview">Preview</string>
+    <string name="cd_edit">Edit</string>
+    <string name="cd_more">More options</string>
+    <string name="title_placeholder">Title</string>
+    <string name="body_placeholder">Start writing. Markdown works here.</string>
+    <string name="link_copy">Copy link</string>
+    <string name="link_open">Open</string>
+</resources>

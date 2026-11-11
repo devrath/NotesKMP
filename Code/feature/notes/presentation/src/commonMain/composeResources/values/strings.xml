@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Notes</string>
+    <string name="cd_search_notes">Search notes</string>
+    <string name="cd_import">Import Markdown file</string>
+    <string name="new_note">New note</string>
+    <string name="import_file">Import file</string>
+    <string name="group_pinned">Pinned</string>
+    <string name="group_notes">Notes</string>
+    <plurals name="notes_count">
+        <item quantity="one">%1$d note</item>
+        <item quantity="other">%1$d notes</item>
+    </plurals>
+
+    <string name="empty_title">No notes yet</string>
+    <string name="empty_message">Write your first note, or import a Markdown file.</string>
+
+    <!-- %1$s is the note title -->
+    <string name="import_succeeded">Imported “%1$s”</string>
+    <string name="import_error_too_large">This file is too large to import (max 5 MB)</string>
+    <string name="import_error_not_text">This file isn’t a text file</string>
+    <string name="import_error_unreadable">Couldn’t read this file</string>
+
+    <!-- Sample notes, created once on first launch -->
+    <string name="sample_welcome_title">Welcome to Notes</string>
+    <string name="sample_welcome_body">Write in **Markdown**, read it formatted, and find any note in seconds.\n\nEverything stays on this device. There’s no account and nothing to sync.\n\n- Tap **New note** to start writing.\n- Open a note to read it; tap the pencil to edit.\n- Long-press a note for more actions.</string>
+    <string name="sample_cheat_sheet_title">Markdown cheat sheet</string>
+    <string name="sample_cheat_sheet_body"># Heading 1\n## Heading 2\n### Heading 3\n\n**Bold**, *italic* and ~~strikethrough~~ text.\n\n- Bulleted list\n- Another item\n  - Nested item\n\n1. Numbered list\n2. Second item\n\n- [ ] Tap me in preview to tick me\n- [x] Already done\n\n> A quote stands out from the text.\n\nInline `code`, and a fenced block:\n\n```\nval results = notes.search(query)\n```\n\n[A link](https://commonmark.org) and a bare address: https://spec.commonmark.org</string>
+    <string name="sample_tips_title">Tips</string>
+    <string name="sample_tips_body">- **Search** finds any word in titles and text, even with only the start of a word.\n- **Pin** a note to keep it at the top: long-press it, or use the menu in the note.\n- **Import** a .md or .txt file with the import button on the notes list.\n- **Export** any note as a Markdown file from its menu.</string>
+</resources>

@@ -21,6 +21,8 @@ dependencies {
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.kotlin.gradlePlugin)
     compileOnly(libs.compose.gradlePlugin)
+    compileOnly(libs.ksp.gradlePlugin)
+    compileOnly(libs.room.gradlePlugin)
 }
 
 gradlePlugin {
@@ -40,6 +42,10 @@ gradlePlugin {
         register("cmpApplication") {
             id = libs.plugins.convention.cmp.application.get().pluginId
             implementationClass = "CmpApplicationConventionPlugin"
+        }
+        register("room") {
+            id = libs.plugins.convention.room.get().pluginId
+            implementationClass = "RoomConventionPlugin"
         }
         register("androidApplicationCompose") {
             id = libs.plugins.convention.android.application.compose.get().pluginId

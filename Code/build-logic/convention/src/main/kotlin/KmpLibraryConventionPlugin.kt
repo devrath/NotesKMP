@@ -21,6 +21,10 @@ class KmpLibraryConventionPlugin : Plugin<Project> {
                 "commonMainImplementation"(libs.library("kotlinx-coroutines-core"))
                 "commonMainImplementation"(libs.library("kotlinx-serialization-json"))
 
+                // Shared test doubles, for every module except the ones they're built from.
+                if (path != ":core:testing" && path != ":core:domain") {
+                    "commonTestImplementation"(project(":core:testing"))
+                }
                 "commonTestImplementation"(libs.library("kotlin-test"))
                 "commonTestImplementation"(libs.library("assertk"))
                 "commonTestImplementation"(libs.library("turbine"))
