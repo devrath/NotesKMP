@@ -16,13 +16,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import org.jetbrains.compose.resources.painterResource
 
-import noteskmp.shared.generated.resources.Res
-import noteskmp.shared.generated.resources.compose_multiplatform
+import com.istudio.noteskmp.core.designsystem.theme.NotesTheme
+import com.istudio.noteskmp.shared.generated.resources.Res
+import com.istudio.noteskmp.shared.generated.resources.compose_multiplatform
 
 @Composable
 @Preview
 fun App() {
-    MaterialTheme {
+    NotesTheme {
         var showContent by remember { mutableStateOf(false) }
         Column(
             modifier = Modifier
