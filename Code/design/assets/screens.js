@@ -1,10 +1,10 @@
-// Marky screen mockups. Every screen is built from the same pieces for both
+// Notes screen mockups. Every screen is built from the same pieces for both
 // platforms; `p` is 'android' or 'ios' and decides the platform-specific chrome.
 
 /* ---------- Sample content ---------- */
 
 const NOTES = [
-  { title: 'Welcome to Marky', pinned: true, time: 'Mar 4',
+  { title: 'Welcome to Notes', pinned: true, time: 'Mar 4',
     preview: 'Write in Markdown, read it formatted, and find any note in seconds. Everything stays on this device.' },
   { title: 'Weekly plan', pinned: true, time: 'Yesterday',
     preview: 'This week: focus on search and import errors. Ship the notes list, review import error copy, finish the search screen.' },
@@ -15,7 +15,7 @@ const NOTES = [
   { title: '', fallback: 'Groceries for the weekend', time: '2 h ago',
     preview: 'Lemons, oat milk, sourdough, basil, the good olive oil.' },
   { title: 'Markdown cheat sheet', time: 'Mar 4',
-    preview: 'Headings, bold, italic, lists, checklists, quotes, code and links: everything Marky understands.' },
+    preview: 'Headings, bold, italic, lists, checklists, quotes, code and links: everything Notes understands.' },
   { title: 'Tips', time: 'Mar 4',
     preview: 'Long-press a note to pin it. Search finds words in titles and text. Export any note as a .md file.' },
   { title: 'Trip to Lisbon', time: 'Dec 12, 2025',
@@ -98,11 +98,11 @@ function emptyState(p, glyph, title, text, actions = '') {
 
 function listChrome(p) {
   if (p === 'android') {
-    return `<div class="a-topbar"><span class="wordmark">Marky</span><span class="spacer"></span>
+    return `<div class="a-topbar"><span class="wordmark">Notes</span><span class="spacer"></span>
       ${iconBtn(p, 'search', 'Search notes')}${iconBtn(p, 'import', 'Import Markdown file')}</div>`;
   }
   return `<div class="i-nav"><span class="spacer"></span>${iconBtn(p, 'import', 'Import Markdown file')}</div>
-    <div class="i-large"><span class="wordmark">Marky</span></div>
+    <div class="i-large"><span class="wordmark">Notes</span></div>
     <div class="i-search" role="search">${icon('search', { size: 18 })}Search</div>`;
 }
 
@@ -360,8 +360,8 @@ const SCREENS = [
     { id: 'note-export', name: 'Export', build: (p, t) => p === 'ios'
         ? note(p, { ...t, mode: 'preview', share: true })
         : note(p, { ...t, mode: 'preview', snackbar: 'Exported “Weekly plan.md”' }),
-      notes: [{ android: 'The system document creator saves the file (not drawn). Marky confirms afterwards because Android doesn’t.',
-        ios: 'The native share sheet offers Save to Files. iOS confirms the save itself, so Marky adds nothing.' },
+      notes: [{ android: 'The system document creator saves the file (not drawn). Notes confirms afterwards because Android doesn’t.',
+        ios: 'The native share sheet offers Save to Files. iOS confirms the save itself, so Notes adds nothing.' },
         'File name is the title with illegal characters replaced by “-”, trimmed to 100 characters, plus .md.'] },
   ] },
   { group: 'Dialog', items: [

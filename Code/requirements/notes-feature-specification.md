@@ -1,4 +1,4 @@
-# Marky: Feature Specification
+# Notes: Feature Specification
 
 2026-10-02 · @Devrath
 
@@ -8,11 +8,11 @@
 
 ## Overview
 
-Marky is a local-first notes app: people write notes in Markdown, read them nicely formatted, and find any note quickly through search.
+Notes is a local-first notes app: people write notes in Markdown, read them nicely formatted, and find any note quickly through search.
 
 It runs fully offline with no account, server, or sync. All notes live on the device, and users can import or export any single note as a plain `.md` file at any time.
 
-**Why this app:** Markdown is a fast, portable way to write, but many notes apps either hide it behind rich-text editors or bury it under features. Marky keeps only the core: write in Markdown, read it formatted, and find any note in seconds.
+**Why this app:** Markdown is a fast, portable way to write, but many notes apps either hide it behind rich-text editors or bury it under features. Notes keeps only the core: write in Markdown, read it formatted, and find any note in seconds.
 
 **Platforms:** Android and iOS, from one Kotlin Multiplatform + Compose Multiplatform codebase. Each platform follows its own conventions where users expect them (see [Platform conventions](#platform-conventions)).
 
@@ -203,7 +203,7 @@ The app has four feature areas. Each item says what the feature does, why it's t
 
 #### Sample notes on first launch
 
-- On first launch only, the app creates 3 short sample notes: "Welcome to Marky" (pinned), "Markdown cheat sheet" (shows every supported element, including a tickable checklist), and "Tips" (search, pin, import/export).
+- On first launch only, the app creates 3 short sample notes: "Welcome to Notes" (pinned), "Markdown cheat sheet" (shows every supported element, including a tickable checklist), and "Tips" (search, pin, import/export).
 - They're ordinary notes the user can edit or delete. Once deleted, they never come back, including after app updates.
 - *Why:* an empty app doesn't show what's possible; examples do.
 

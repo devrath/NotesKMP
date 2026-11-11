@@ -1,5 +1,5 @@
-// Marky icon set: 24 × 24 grid, 1.75 stroke, round caps and joins.
-// Maps 1:1 to the app's icon object (MarkyIcons.*). Android draws them at 24 dp,
+// Notes icon set: 24 × 24 grid, 1.75 stroke, round caps and joins.
+// Maps 1:1 to the app's icon object (NotesIcons.*). Android draws them at 24 dp,
 // iOS at 22 pt (SF Symbols weight "regular" equivalent).
 const ICONS = {
   search: '<circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/>',

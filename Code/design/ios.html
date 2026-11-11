@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Marky iOS Screens</title>
+<title>Notes iOS Screens</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Roboto:wght@400;500;600;700;800&family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/tokens.css">
@@ -29,13 +29,13 @@
 <script>
   const root = document.getElementById('gallery');
   const both = document.getElementById('both');
-  try { both.checked = localStorage.getItem('marky-both') === 'true'; } catch (e) {}
+  try { both.checked = localStorage.getItem('notes-both') === 'true'; } catch (e) {}
   function draw() {
     root.dataset.both = String(both.checked);
     renderGallery('ios', root);
   }
   both.addEventListener('change', () => {
-    try { localStorage.setItem('marky-both', String(both.checked)); } catch (e) {}
+    try { localStorage.setItem('notes-both', String(both.checked)); } catch (e) {}
     draw();
   });
   renderJump(document.getElementById('jump'));

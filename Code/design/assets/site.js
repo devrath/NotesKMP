@@ -9,15 +9,15 @@
   const here = location.pathname.split('/').pop() || 'index.html';
 
   function storedTheme() {
-    try { return localStorage.getItem('marky-theme') || 'system'; } catch (e) { return 'system'; }
+    try { return localStorage.getItem('notes-theme') || 'system'; } catch (e) { return 'system'; }
   }
   function applyTheme(t) {
     if (t === 'system') document.documentElement.removeAttribute('data-theme');
     else document.documentElement.setAttribute('data-theme', t);
-    try { localStorage.setItem('marky-theme', t); } catch (e) { /* storage blocked */ }
+    try { localStorage.setItem('notes-theme', t); } catch (e) { /* storage blocked */ }
     document.querySelectorAll('.theme-switch button').forEach((b) =>
       b.setAttribute('aria-pressed', String(b.dataset.theme === t)));
-    document.dispatchEvent(new CustomEvent('marky-theme', { detail: t }));
+    document.dispatchEvent(new CustomEvent('notes-theme', { detail: t }));
   }
   applyTheme(storedTheme());
 
@@ -25,7 +25,7 @@
     const header = document.createElement('header');
     header.className = 'site-header';
     header.innerHTML = `
-      <a class="brand" href="index.html"><span class="wordmark">Marky</span><span class="brand-sub">Design</span></a>
+      <a class="brand" href="index.html"><span class="wordmark">Notes</span><span class="brand-sub">Design</span></a>
       <nav aria-label="Pages">${pages.map(([href, label]) =>
         `<a href="${href}" ${href === here ? 'aria-current="page"' : ''}>${label}</a>`).join('')}</nav>
       <div class="theme-switch" role="group" aria-label="Theme">
