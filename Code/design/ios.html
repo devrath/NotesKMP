@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notes iOS Screens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Roboto:wght@400;500;600;700;800&family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/site.js"></script>
+</head>
+<body>
+<main>
+  <div class="lede">
+    <h1>iOS Screens</h1>
+    <p>iOS conventions: large title, swipe-back navigation, bottom toolbar with the create button, context menus, native alerts and share sheet. Frames are 393 × 852 pt (iPhone 16).</p>
+    <p>Every screen and state in the spec, drawn with the shared design tokens. Switch the theme in the header, or show light and dark side by side.</p>
+  </div>
+  <div class="gallery-tools">
+    <label class="toggle"><input type="checkbox" id="both"> Show light and dark side by side</label>
+  </div>
+  <ul class="jump" id="jump" aria-label="Screens on this page"></ul>
+  <div id="gallery" data-both="false"></div>
+</main>
+<script src="assets/icons.js"></script>
+<script src="assets/screens.js"></script>
+<script>
+  const root = document.getElementById('gallery');
+  const both = document.getElementById('both');
+  try { both.checked = localStorage.getItem('notes-both') === 'true'; } catch (e) {}
+  function draw() {
+    root.dataset.both = String(both.checked);
+    renderGallery('ios', root);
+  }
+  both.addEventListener('change', () => {
+    try { localStorage.setItem('notes-both', String(both.checked)); } catch (e) {}
+    draw();
+  });
+  renderJump(document.getElementById('jump'));
+  draw();
+</script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+/* Notes design tokens.
+   Light is the default. Dark follows the system unless the page or a single
+   phone frame sets data-theme="light" | "dark". */
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Base palette */
+  --paper: #F7F8FA;
+  --ink: #171A2B;
+  --cobalt: #2F45B5;
+  --marker: #FFE14D;
+  --graphite: #5A5F73;
+
+  /* Roles */
+  --bg: var(--paper);
+  --surface: #FFFFFF;
+  --surface-2: #EEF0F5;        /* search field, toolbar, code */
+  --surface-3: #E3E6EE;        /* pressed, selected */
+  --on-bg: var(--ink);
+  --on-muted: var(--graphite); /* previews, timestamps */
+  --md-marker: #636982;        /* muted Markdown syntax in the editor (≥ 4.5:1) */
+  --outline: #DDE0E8;          /* decorative dividers */
+  --outline-strong: #858AA0;   /* input borders, focus-adjacent (≥ 3:1) */
+
+  --primary: var(--cobalt);
+  --on-primary: #FFFFFF;
+  --primary-soft: #E4E8FB;
+  --on-primary-soft: #1E2E80;
+
+  --accent: var(--marker);     /* create button, brand mark */
+  --on-accent: var(--ink);
+
+  --hl-bg: var(--marker);      /* search match: background + bold */
+  --hl-fg: var(--ink);
+
+  --danger: #B42318;
+  --on-danger: #FFFFFF;
+
+  --code-bg: #EEF0F5;
+  --code-fg: #2A2F48;
+  --check-done: #6A7086;
+
+  --snackbar-bg: #252A40;
+  --snackbar-fg: #F1F2F7;
+  --snackbar-action: #FFE14D;
+
+  --scrim: rgba(16, 19, 31, 0.36);
+  --shadow-1: 0 1px 2px rgba(23, 26, 43, 0.08), 0 1px 1px rgba(23, 26, 43, 0.04);
+  --shadow-3: 0 8px 24px rgba(23, 26, 43, 0.16), 0 2px 6px rgba(23, 26, 43, 0.08);
+  --focus: #2F45B5;
+
+  --kbd-bg: #D4D7DF;
+  --kbd-key: #FFFFFF;
+  --kbd-key-alt: #ADB2C0;
+  --kbd-fg: #171A2B;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #10131F;
+    --surface: #171B2A;
+    --surface-2: #20253A;
+    --surface-3: #2A3049;
+    --on-bg: #E7E9F2;
+    --on-muted: #A4A9BE;
+    --md-marker: #8F95AD;
+    --outline: #2A2F44;
+    --outline-strong: #7A809A;
+    --primary: #A9B6FF;
+    --on-primary: #0E1A5C;
+    --primary-soft: #26326E;
+    --on-primary-soft: #DCE1FF;
+    --accent: #FFE14D;
+    --on-accent: #171A2B;
+    --hl-bg: #FFE14D;
+    --hl-fg: #171A2B;
+    --danger: #FFB4AB;
+    --on-danger: #5F0B05;
+    --code-bg: #1C2134;
+    --code-fg: #D6DAEA;
+    --check-done: #8F95AD;
+    --snackbar-bg: #E7E9F2;
+    --snackbar-fg: #171A2B;
+    --snackbar-action: #2F45B5;
+    --scrim: rgba(0, 0, 0, 0.56);
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-3: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --focus: #A9B6FF;
+    --kbd-bg: #2B2F3D;
+    --kbd-key: #4A4F60;
+    --kbd-key-alt: #363A48;
+    --kbd-fg: #F1F2F7;
+  }
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #10131F;
+  --surface: #171B2A;
+  --surface-2: #20253A;
+  --surface-3: #2A3049;
+  --on-bg: #E7E9F2;
+  --on-muted: #A4A9BE;
+  --md-marker: #8F95AD;
+  --outline: #2A2F44;
+  --outline-strong: #7A809A;
+  --primary: #A9B6FF;
+  --on-primary: #0E1A5C;
+  --primary-soft: #26326E;
+  --on-primary-soft: #DCE1FF;
+  --accent: #FFE14D;
+  --on-accent: #171A2B;
+  --hl-bg: #FFE14D;
+  --hl-fg: #171A2B;
+  --danger: #FFB4AB;
+  --on-danger: #5F0B05;
+  --code-bg: #1C2134;
+  --code-fg: #D6DAEA;
+  --check-done: #8F95AD;
+  --snackbar-bg: #E7E9F2;
+  --snackbar-fg: #171A2B;
+  --snackbar-action: #2F45B5;
+  --scrim: rgba(0, 0, 0, 0.56);
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-3: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --focus: #A9B6FF;
+  --kbd-bg: #2B2F3D;
+  --kbd-key: #4A4F60;
+  --kbd-key-alt: #363A48;
+  --kbd-fg: #F1F2F7;
+}
+
+/* Spacing (4-pt grid), radius, motion */
+:root {
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+
+  --r-xs: 4px;    /* inline code, highlight */
+  --r-sm: 8px;    /* code blocks, menus (iOS) */
+  --r-md: 12px;   /* list cards, snackbars */
+  --r-lg: 16px;   /* FAB, sheets */
+  --r-xl: 28px;   /* dialogs (Android), search bar */
+  --r-full: 999px;
+
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 300ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.3, 0, 0, 1);
+
+  --font-android: "Roboto", "Roboto Flex", system-ui, sans-serif;
+  --font-ios: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-doc: "Schibsted Grotesk", system-ui, sans-serif;
+
+  /* 1 = 100% system text size; frames set 2 for the 200% check */
+  --ts: 1;
+}
