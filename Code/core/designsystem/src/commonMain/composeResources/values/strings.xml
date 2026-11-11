@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cd_back">Back</string>
+    <string name="cd_clear_search">Clear search</string>
+    <string name="cd_pinned">Pinned</string>
+    <string name="search_placeholder">Search notes</string>
+    <string name="search_entry">Search</string>
+    <string name="search_cancel">Cancel</string>
+    <string name="saved_status">Saved</string>
+
+    <!-- Note entry. %1$s title, %2$s edit time, %3$s preview -->
+    <string name="note_entry_description">%1$s, edited %2$s. %3$s</string>
+    <string name="note_entry_description_pinned">%1$s, pinned, edited %2$s. %3$s</string>
+    <string name="note_entry_long_click_label">Show actions</string>
+
+    <!-- %1$s item text -->
+    <string name="checklist_item_description">Checklist item, %1$s</string>
+
+    <string name="formatting_toolbar">Formatting</string>
+    <string name="format_heading">Heading</string>
+    <string name="format_bold">Bold</string>
+    <string name="format_italic">Italic</string>
+    <string name="format_bulleted_list">Bulleted list</string>
+    <string name="format_numbered_list">Numbered list</string>
+    <string name="format_checklist">Checklist</string>
+    <string name="format_quote">Quote</string>
+    <string name="format_inline_code">Inline code</string>
+    <string name="format_code_block">Code block</string>
+    <string name="format_link">Link</string>
+</resources>

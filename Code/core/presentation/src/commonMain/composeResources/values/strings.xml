@@ -1,0 +1,30 @@
+<resources>
+    <string name="error_disk_full">Your device is out of storage. Free up some space and try again.</string>
+    <string name="error_not_found">This note no longer exists.</string>
+    <string name="error_unknown">Something went wrong. Try again.</string>
+
+    <string name="untitled">Untitled</string>
+
+    <string name="relative_just_now">Just now</string>
+    <plurals name="relative_minutes_ago">
+        <item quantity="one">%1$d min ago</item>
+        <item quantity="other">%1$d min ago</item>
+    </plurals>
+    <plurals name="relative_hours_ago">
+        <item quantity="one">%1$d h ago</item>
+        <item quantity="other">%1$d h ago</item>
+    </plurals>
+    <string name="relative_yesterday">Yesterday</string>
+
+    <!-- Note actions, shared by the notes list and the note screen -->
+    <string name="action_pin">Pin</string>
+    <string name="action_unpin">Unpin</string>
+    <string name="action_export">Export as Markdown</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_open">Open</string>
+    <string name="delete_dialog_title">Delete “%1$s”?</string>
+    <string name="delete_dialog_message">This note will be deleted permanently. This can’t be undone.</string>
+    <string name="export_succeeded">Exported “%1$s”</string>
+    <string name="export_failed">Couldn’t export this note. Try again.</string>
+</resources>
