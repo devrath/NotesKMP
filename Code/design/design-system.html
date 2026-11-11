@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marky Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Roboto:wght@400;500;600;700;800&family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/site.js"></script>
+<style>
+  /* Let app components sit on the page instead of inside a fixed-size phone */
+  .ds .screen.stage { width: auto; height: auto; border-radius: 0; overflow: visible; background: transparent; display: flex; flex-direction: row; }
+  .ds .theme-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
+  .ds .theme-col { border-radius: 16px; padding: 20px; background: var(--bg); color: var(--on-bg); border: 1px solid var(--outline); }
+  .ds .theme-col h3 { margin-bottom: 14px; }
+  .ds .fixed-w { width: 360px; max-width: 100%; }
+  .ds .fixed-w-ios { width: 393px; max-width: 100%; }
+  .ds .holder .fmt-bar, .ds .holder .a-topbar, .ds .holder .i-nav, .ds .holder .a-searchfield, .ds .holder .i-search-row { position: relative; }
+  .ds .md-spec { border: 1px solid var(--outline); border-radius: 12px; background: var(--bg); }
+</style>
+</head>
+<body class="ds">
+<main>
+  <div class="lede">
+    <h1>Design system</h1>
+    <p>Marky is a pen and a highlighter. Text is cobalt ink on cool paper, and a single marker-yellow swipe is the one loud element: the wordmark, the create button and search matches. Everything else stays quiet so the writing leads.</p>
+    <p>Tokens live in <code>assets/tokens.css</code> and map one-to-one onto the Compose theme (<code>MarkyTheme</code>). Each component below is drawn by the same code as the screen mockups.</p>
+  </div>
+
+  <section class="section" id="principles">
+    <h2>Principles</h2>
+    <div class="dos">
+      <div><h3>Writing leads</h3><ul><li>No chrome competes with text: flat surfaces, hairline outlines, no decorative shadows.</li><li>One tap to a focused cursor.</li></ul></div>
+      <div><h3>Yellow means “this is the thing”</h3><ul><li>Marker yellow is reserved for the create action, the brand mark and search matches.</li><li>It always carries ink-colored content, never white.</li></ul></div>
+      <div><h3>Native where it counts</h3><ul><li>Platform fonts, navigation, menus, dialogs, pickers and share flows.</li><li>Shared layout, color, icons and copy everywhere else.</li></ul></div>
+      <div><h3>Never color alone</h3><ul><li>Pins are icons, highlights are background plus bold, done items carry a check.</li><li>Every pair passes WCAG 2.2 AA in both themes (checked live below).</li></ul></div>
+    </div>
+  </section>
+
+  <section class="section" id="color">
+    <h2>Color</h2>
+    <p class="intro">Five base colors. Everything in the app is a role that points at one of them, so dark mode is a remap rather than a second design. On Android 12+, dynamic color may replace the cobalt roles as long as these contrast checks still pass; marker yellow stays.</p>
+    <div class="palette">
+      <div style="background:#F7F8FA;color:#171A2B"><b>Paper</b>#F7F8FA</div>
+      <div style="background:#171A2B;color:#F7F8FA"><b>Ink</b>#171A2B</div>
+      <div style="background:#2F45B5;color:#FFFFFF"><b>Cobalt</b>#2F45B5</div>
+      <div style="background:#FFE14D;color:#171A2B"><b>Marker</b>#FFE14D</div>
+      <div style="background:#5A5F73;color:#FFFFFF"><b>Graphite</b>#5A5F73</div>
+      <div style="background:#10131F;color:#E7E9F2"><b>Night ink</b>#10131F (dark bg)</div>
+    </div>
+
+    <h3 style="margin-top:36px">Roles and contrast</h3>
+    <p class="intro">Ratios are computed in your browser from the live tokens. Text needs 4.5:1; icons, borders and focus rings need 3:1.</p>
+    <div class="theme-cols">
+      <div class="theme-col" data-theme="light"><h3>Light</h3><div class="swatches" data-swatches></div></div>
+      <div class="theme-col" data-theme="dark"><h3>Dark</h3><div class="swatches" data-swatches></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="type">
+    <h2>Typography</h2>
+    <p class="intro">The app uses each platform's system face (Roboto, SF Pro) so it reads as native and gets Dynamic Type and font scaling for free. JetBrains Mono is used for code only. Every size scales with the system text setting up to 200%.</p>
+    <div class="two-col">
+      <div class="specimen android"><div class="screen stage" style="display:block">
+        <h3 style="font-family:var(--font-doc)">Android (sp)</h3>
+        <div class="type-row"><div class="tok">App title<code>24 / 800 / −3%</code></div><div><span class="wordmark" style="font-size:24px">Marky</span></div></div>
+        <div class="type-row"><div class="tok">Note title<code>26 / 32, 700</code></div><div style="font-size:26px;line-height:32px;font-weight:700;letter-spacing:-.015em">Weekly plan</div></div>
+        <div class="type-row"><div class="tok">Empty headline<code>22 / 29, 600</code></div><div style="font-size:22px;font-weight:600">No notes yet</div></div>
+        <div class="type-row"><div class="tok">List title<code>16 / 24, 600</code></div><div style="font-size:16px;line-height:24px;font-weight:600">Café ideas</div></div>
+        <div class="type-row"><div class="tok">Body, editor, preview<code>16 / 24, 400</code></div><div style="font-size:16px;line-height:24px">Writing comes first. Nothing asks you to organize before you write.</div></div>
+        <div class="type-row"><div class="tok">Preview, label<code>14 / 20, 400–500</code></div><div style="font-size:14px;line-height:20px;color:var(--on-muted)">Oat flat white with cardamom.</div></div>
+        <div class="type-row"><div class="tok">Meta<code>12 / 16, 400</code></div><div style="font-size:12px;color:var(--on-muted)">5 min ago</div></div>
+        <div class="type-row"><div class="tok">Code<code>JetBrains Mono 14 / 22</code></div><div style="font:14px/22px var(--font-mono)">notes.search(query)</div></div>
+      </div></div>
+      <div class="specimen ios"><div class="screen stage" style="display:block">
+        <h3 style="font-family:var(--font-doc)">iOS (pt, Dynamic Type style)</h3>
+        <div class="type-row"><div class="tok">Large title<code>34 / 41, 800</code></div><div><span class="wordmark" style="font-size:34px">Marky</span></div></div>
+        <div class="type-row"><div class="tok">Note title, Title 1<code>28 / 34, 700</code></div><div style="font-size:28px;line-height:34px;font-weight:700">Weekly plan</div></div>
+        <div class="type-row"><div class="tok">Headline<code>17 / 22, 600</code></div><div style="font-size:17px;font-weight:600">Café ideas</div></div>
+        <div class="type-row"><div class="tok">Body, editor, preview<code>17 / 25.5, 400</code></div><div style="font-size:17px;line-height:25.5px">Writing comes first. Nothing asks you to organize before you write.</div></div>
+        <div class="type-row"><div class="tok">Subheadline<code>15 / 20, 400</code></div><div style="font-size:15px;color:var(--on-muted)">Oat flat white with cardamom.</div></div>
+        <div class="type-row"><div class="tok">Footnote<code>13 / 18, 400</code></div><div style="font-size:13px;color:var(--on-muted)">5 min ago</div></div>
+        <div class="type-row"><div class="tok">Code<code>JetBrains Mono 15 / 24</code></div><div style="font:15px/24px var(--font-mono)">notes.search(query)</div></div>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="section" id="layout">
+    <h2>Spacing, shape and motion</h2>
+    <p class="intro">A 4-point grid. Screen gutters are 20 for reading text and 12–16 for lists. Corner radius grows with the size of the surface.</p>
+    <div class="two-col">
+      <div class="specimen">
+        <h3>Spacing</h3>
+        <div class="scale" id="space-scale"></div>
+      </div>
+      <div class="specimen">
+        <h3>Radius</h3>
+        <div class="radii">
+          <figure><div class="box" style="border-radius:4px"></div>xs 4: code, highlight, menu</figure>
+          <figure><div class="box" style="border-radius:8px"></div>sm 8: code block</figure>
+          <figure><div class="box" style="border-radius:12px"></div>md 12: note card</figure>
+          <figure><div class="box" style="border-radius:16px"></div>lg 16: FAB, sheet</figure>
+          <figure><div class="box" style="border-radius:28px"></div>xl 28: dialog</figure>
+        </div>
+      </div>
+    </div>
+    <div class="specimen" style="margin-top:16px">
+      <table class="spec">
+        <thead><tr><th>Motion</th><th>Duration</th><th>Easing</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td>Fast</td><td><code>120 ms</code></td><td>standard</td><td>Checkbox tick, button press, Saved fade</td></tr>
+          <tr><td>Base</td><td><code>200 ms</code></td><td>standard</td><td>Edit ↔ Preview cross-fade (must finish within the 200 ms budget), menus</td></tr>
+          <tr><td>Slow</td><td><code>300 ms</code></td><td>emphasized</td><td>Pin reorder in the list, dialog and sheet entrance</td></tr>
+          <tr><td>Reduce motion on</td><td><code>0 ms</code></td><td>none</td><td>Reorder and cross-fades become instant; the caret stops blinking</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" id="icons">
+    <h2>Icons</h2>
+    <p class="intro">One outlined set on a 24 grid with a 1.75 stroke: 24 dp on Android, 22 pt on iOS. Icon-only buttons always carry an accessible name, shown as a tooltip on long-press.</p>
+    <div class="icon-grid" id="icon-grid"></div>
+  </section>
+
+  <section class="section" id="components">
+    <h2>Components</h2>
+    <p class="intro">Shown for both platforms where they differ. Touch targets are at least 48 × 48 dp and 44 × 44 pt even when the visible shape is smaller.</p>
+    <div id="components"></div>
+  </section>
+
+  <section class="section" id="markdown">
+    <h2>Markdown: editor and preview</h2>
+    <p class="intro">The same note in both modes. The editor highlights syntax lightly but never changes the text. The preview uses 1.5× line height, about 70 characters per line at most, and sideways-scrolling code.</p>
+    <div class="two-col">
+      <div class="comp"><span class="label">Edit mode: raw Markdown</span><div class="md-spec android"><div class="screen stage" style="display:block"><div class="editor" id="editor-spec" style="padding:16px 20px"></div></div></div></div>
+      <div class="comp"><span class="label">Preview mode</span><div class="md-spec android"><div class="screen stage" style="display:block"><div class="md" id="preview-spec" style="padding:16px 20px"></div></div></div></div>
+    </div>
+    <div class="specimen" style="margin-top:16px">
+      <table class="spec">
+        <thead><tr><th>Element</th><th>Editor</th><th>Preview</th></tr></thead>
+        <tbody>
+          <tr><td>Heading <code>#</code> <code>##</code> <code>###</code></td><td>Marker muted, text bold; ## at 1.12×</td><td>1.5× / 1.25× / 1.06×, 700, exposed to screen readers as headings</td></tr>
+          <tr><td><code>**bold**</code> <code>*italic*</code> <code>~~strike~~</code></td><td>Markers muted, styled text</td><td>Styled; strikethrough also muted</td></tr>
+          <tr><td>Lists, nested</td><td>Markers muted; Enter continues the list</td><td>Graphite bullets and numbers, 1.4em indent</td></tr>
+          <tr><td><code>- [ ]</code> checklist</td><td>Marker muted</td><td>22 px box with a 48 / 44 tap row; done is filled cobalt with a check, text muted</td></tr>
+          <tr><td><code>&gt; quote</code></td><td>Marker muted</td><td>3 px graphite rule, muted text</td></tr>
+          <tr><td>Code, inline and fenced</td><td>Mono on code tint</td><td>Mono on code tint; blocks scroll sideways, never wrap</td></tr>
+          <tr><td>Links and bare URLs</td><td>Text cobalt, URL muted</td><td>Cobalt, underlined; only http, https, mailto open</td></tr>
+          <tr><td>Raw HTML</td><td>Plain text</td><td>Plain text, never rendered</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" id="content">
+    <h2>Accessibility and copy</h2>
+    <div class="two-col">
+      <div class="specimen">
+        <h3>Accessible names</h3>
+        <table class="spec">
+          <thead><tr><th>Element</th><th>Announced as</th></tr></thead>
+          <tbody>
+            <tr><td>Create button</td><td>“New note, button”</td></tr>
+            <tr><td>Import</td><td>“Import Markdown file, button”</td></tr>
+            <tr><td>Mode toggle</td><td>“Preview” in edit mode, “Edit” in preview mode</td></tr>
+            <tr><td>Note entry</td><td>“Weekly plan, pinned, edited yesterday. This week: focus on…”</td></tr>
+            <tr><td>Checklist item</td><td>“Checklist item, Buy milk, not checked”</td></tr>
+            <tr><td>Search match</td><td>Read as plain text; the highlight is visual only</td></tr>
+            <tr><td>Saved status</td><td>Polite live region, announced once per save burst</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="specimen">
+        <h3>Copy rules</h3>
+        <table class="spec">
+          <tbody>
+            <tr><td>Sentence case, plain verbs</td><td>“New note”, “Export as Markdown”, “Copy link”</td></tr>
+            <tr><td>Same word through a flow</td><td>“Import” → “Imported “Ideas””; “Export” → “Exported “Weekly plan.md””</td></tr>
+            <tr><td>Errors say what and why</td><td>“This file is too large to import (max 5 MB)”; never just “Error”</td></tr>
+            <tr><td>Empty states point to an action</td><td>“No notes yet. Write your first note, or import a Markdown file.”</td></tr>
+            <tr><td>No confirmation chatter</td><td>No “Saved!” toast; a quiet status only</td></tr>
+          </tbody>
+        </table>
+        <h3 style="margin-top:20px">Keyboard shortcuts</h3>
+        <table class="spec"><tbody>
+          <tr><td>⌘/Ctrl + N</td><td>New note</td><td>⌘/Ctrl + F</td><td>Search</td></tr>
+          <tr><td>⌘/Ctrl + E</td><td>Toggle preview</td><td>⌘/Ctrl + B</td><td>Bold</td></tr>
+          <tr><td>⌘/Ctrl + I</td><td>Italic</td><td>⌘/Ctrl + K</td><td>Link</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="assets/icons.js"></script>
+<script src="assets/screens.js"></script>
+<script>
+  /* ---- Contrast checks ---- */
+  const PAIRS = [
+    ['on-bg', 'bg', 'Text on background', 4.5],
+    ['on-muted', 'bg', 'Secondary text', 4.5],
+    ['on-muted', 'surface', 'Preview on card', 4.5],
+    ['md-marker', 'bg', 'Markdown markers', 4.5],
+    ['primary', 'bg', 'Links, iOS tint', 4.5],
+    ['on-primary', 'primary', 'On primary (checked box)', 4.5],
+    ['on-accent', 'accent', 'Create button', 4.5],
+    ['hl-fg', 'hl-bg', 'Search highlight', 4.5],
+    ['code-fg', 'code-bg', 'Code', 4.5],
+    ['danger', 'surface', 'Destructive text', 4.5],
+    ['snackbar-fg', 'snackbar-bg', 'Snackbar text', 4.5],
+    ['snackbar-action', 'snackbar-bg', 'Snackbar action', 4.5],
+    ['check-done', 'bg', 'Done checklist text', 4.5],
+    ['outline-strong', 'bg', 'Checkbox and input border', 3],
+    ['focus', 'bg', 'Focus ring', 3],
+  ];
+  function lum(rgb) {
+    const [r, g, b] = rgb.match(/[\d.]+/g).slice(0, 3).map((v) => {
+      v = v / 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  }
+  function resolve(el, name) {
+    const probe = document.createElement('span');
+    probe.style.color = `var(--${name})`;
+    el.appendChild(probe);
+    const c = getComputedStyle(probe).color;
+    probe.remove();
+    return c;
+  }
+  function drawSwatches() {
+    document.querySelectorAll('[data-swatches]').forEach((box) => {
+      box.innerHTML = PAIRS.map(([fg, bg, label, min]) => {
+        const a = lum(resolve(box, fg)), b = lum(resolve(box, bg));
+        const ratio = (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+        return `<div class="swatch"><div class="chip" style="background:var(--${bg});color:var(--${fg})">Aa</div>
+          <div class="meta"><b>${label}</b><code>--${fg} on --${bg}</code>
+          <span class="ratio ${ratio >= min ? 'pass' : 'fail'}">${ratio.toFixed(2)}:1 (needs ${min}:1)</span></div></div>`;
+      }).join('');
+    });
+  }
+  drawSwatches();
+
+  /* ---- Spacing ---- */
+  document.getElementById('space-scale').innerHTML = [4, 8, 12, 16, 20, 24, 32, 40]
+    .map((v) => `<figure><div class="bar" style="width:${v}px;height:${v}px"></div>${v}</figure>`).join('');
+
+  /* ---- Icons ---- */
+  const ICON_NAMES = {
+    search: 'Search', import: 'Import file', plus: 'New note (Android)', compose: 'New note (iOS)', back: 'Back (Android)',
+    chevronLeft: 'Back (iOS)', preview: 'Preview', edit: 'Edit', moreVert: 'More (Android)', moreCircle: 'More (iOS)',
+    pin: 'Pin, pinned', pinOff: 'Unpin', trash: 'Delete', export: 'Export', close: 'Clear (Android)', clearFilled: 'Clear (iOS)',
+    heading: 'Heading', bold: 'Bold', italic: 'Italic', listBullet: 'Bulleted list', listNumbered: 'Numbered list',
+    checklist: 'Checklist', quote: 'Quote', code: 'Inline code', codeBlock: 'Code block', link: 'Link', check: 'Checked',
+    copy: 'Copy link', openExternal: 'Open link', note: 'Empty notes', folder: 'Save to Files', warning: 'Error',
+  };
+  document.getElementById('icon-grid').innerHTML = Object.entries(ICON_NAMES)
+    .map(([k, l]) => `<figure>${icon(k, { size: 28 })}<figcaption>${l}<br><code style="font-size:11px">${k}</code></figcaption></figure>`).join('');
+
+  /* ---- Components ---- */
+  function comp(label, html, p = 'android', extra = '') {
+    return `<div class="comp ${extra}"><span class="label">${label}</span><div class="holder ${p}"><div class="screen stage" style="display:block">${html}</div></div></div>`;
+  }
+  function row(title, items) {
+    return `<h3 style="margin:36px 0 12px">${title}</h3><div class="stage" style="gap:16px">${items.join('')}</div>`;
+  }
+  const n = NOTES;
+  document.getElementById('components').innerHTML = [
+    row('Create', [
+      comp('Android: extended FAB, 56 dp', '<button class="a-fab">' + icon('plus') + 'New note</button>'),
+      comp('iOS: toolbar compose, 50 pt', '<button class="i-compose" aria-label="New note">' + icon('compose') + '</button>', 'ios'),
+      comp('Empty-state buttons', `<div style="display:flex;flex-direction:column;gap:10px;width:240px"><button class="btn accent">${icon('plus', { size: 20 })}New note</button><button class="btn outline">${icon('import', { size: 20 })}Import file</button></div>`),
+      comp('Dialog text buttons', '<div style="display:flex;gap:8px"><button class="text-btn focused">Cancel</button><button class="text-btn danger">Delete</button></div>'),
+    ]),
+    row('Top bars', [
+      comp('Android: notes list', `<div class="fixed-w">${listChrome('android')}</div>`),
+      comp('Android: note, edit mode', `<div class="fixed-w">${noteTop('android', 'edit', { saved: true })}</div>`),
+      comp('iOS: notes list', `<div class="fixed-w-ios">${listChrome('ios')}</div>`, 'ios'),
+      comp('iOS: note, preview mode', `<div class="fixed-w-ios">${noteTop('ios', 'preview')}</div>`, 'ios'),
+    ]),
+    row('Note entries', [
+      comp('Android card: pinned', `<div class="fixed-w">${card('android', n[1])}</div>`),
+      comp('Android card: fallback title', `<div class="fixed-w">${card('android', n[4])}</div>`),
+      comp('Android card: pressed / menu open', `<div class="fixed-w">${card('android', n[2], { selected: true })}</div>`),
+      comp('iOS inset rows', `<div class="fixed-w-ios"><div class="i-section">Pinned</div><div class="i-group">${card('ios', n[0])}${card('ios', n[1])}</div></div>`, 'ios'),
+    ]),
+    row('Search', [
+      comp('Android search field', `<div class="fixed-w">${searchField('android', 'plan', true)}</div>`),
+      comp('iOS search field', `<div class="fixed-w-ios">${searchField('ios', 'plan', true)}</div>`, 'ios'),
+      comp('Result with highlight', `<div class="fixed-w"><div class="result"><div class="r-title">Weekly <mark class="hl">plan</mark></div><div class="r-snip">…We agreed the <mark class="hl">plan</mark> keeps export per note…</div><div class="r-meta">Yesterday</div></div></div>`),
+    ]),
+    row('Formatting toolbar', [
+      comp('Android, 48 dp, scrolls sideways', `<div class="fixed-w">${formatBar('android')}</div>`),
+      comp('iOS, 44 pt keyboard accessory', `<div class="fixed-w-ios">${formatBar('ios')}</div>`, 'ios'),
+    ]),
+    row('Feedback', [
+      comp('Android snackbar', `<div class="fixed-w">${snackbar('android', 'Imported “Ideas”', 'Open')}</div>`),
+      comp('Android snackbar: error', `<div class="fixed-w">${snackbar('android', 'This file isn’t a text file')}</div>`),
+      comp('iOS toast', `<div class="fixed-w-ios">${snackbar('ios', 'Imported “Ideas”', 'Open')}</div>`, 'ios'),
+      comp('Saved status', '<span class="saved">Saved</span>'),
+    ]),
+    row('Menus and dialogs', [
+      comp('Android menu', `<div class="a-menu" style="width:220px"><div class="item">${icon('pin')}Pin</div><div class="item">${icon('export')}Export as Markdown</div><hr><div class="item danger">${icon('trash')}Delete</div></div>`),
+      comp('iOS menu', `<div class="i-menu"><div class="item">Pin${icon('pin', { size: 20 })}</div><div class="item">Export as Markdown${icon('export', { size: 20 })}</div><div class="item danger gap">Delete${icon('trash', { size: 20 })}</div></div>`, 'ios'),
+      comp('Android dialog', deleteDialog('android').replace('<div class="scrim"></div>', '')),
+      comp('iOS alert', deleteDialog('ios').replace('<div class="scrim"></div>', ''), 'ios'),
+    ]),
+    row('Empty states', [
+      comp('No notes', `<div class="fixed-w">${emptyState('android', 'note', 'No notes yet', 'Write your first note, or import a Markdown file.', `<button class="btn accent">${icon('plus', { size: 20 })}New note</button><button class="btn outline">${icon('import', { size: 20 })}Import file</button>`).replace('padding: 96px', '')}</div>`),
+      comp('Search, nothing typed', `<div class="fixed-w">${emptyState('android', 'search', 'Search your notes', 'Find any word in titles and text.')}</div>`),
+      comp('Search, no results', `<div class="fixed-w">${emptyState('android', 'search', 'No results for “quarterly budget”', 'Check the spelling or try fewer words.')}</div>`),
+    ]),
+  ].join('');
+  document.querySelectorAll('#components .empty').forEach((e) => { e.style.padding = '24px 16px'; });
+
+  /* ---- Markdown specimens ---- */
+  document.getElementById('editor-spec').innerHTML = editorText(false);
+  document.getElementById('preview-spec').innerHTML = PREVIEW_HTML;
+</script>
+</body>
+</html>
